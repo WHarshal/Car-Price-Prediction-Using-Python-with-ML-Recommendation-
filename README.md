@@ -38,9 +38,15 @@ The following dependencies are required to run the code:
 - Run the notebook cell by cell to execute the code and see the results.
 # Models and Evaluation
 - This project includes two regression models: linear regression and polynomial regression. The models are trained and evaluated as follows:
-- Data preprocessing: The categorical columns (Make, Fuel Type, Location, Color, Owner, Seller Type) are transformed into one-hot encoded features using the ColumnTransformer from Scikit-learn.
+- Data preprocessing: Make, Model, Location and Color have high cardinality hence we delete this columns. Kilometer is highly correlated with Year hence we delete Kilometer to avoid multicolinearity problem. Engine, Max Power, Max Torque are highly correlated so we decided to delete Engine and Max Torque column and keep Max Power as Max Power is higly correlated with target variable 'Price'. Owner, Seller type and Fuel Type have imbalanced data, hence we delete Owner and Seller Type but according to domain expert fuel type is important while selecting the car hence we keep this column. Height is highly correlate with Seating Capacity hence we delete height column. rmp and rmp_t is also highly correlated hence we delete rmp and keep rmp_t as it can be a good predictor of price. The categorical columns (Transmission, Drivetrain, Fuel Type) are transformed into one-hot encoded features using the ColumnTransformer from Scikit-learn.
 - Train-Test Split: The dataset is split into training and testing sets using the train_test_split function from Scikit-learn.
-- Linear Regression: A linear regression model is fitted to the training data and evaluated using metrics such as mean squared error and R-squared score. The model is then used to predict car prices on the testing data.
+- Linear Regression: A linear regression model is fitted to the training data and evaluated using metrics such as R-squared score. The model is then used to predict car prices on the testing data.
 - Polynomial Regression: A polynomial regression model is fitted to the training data by transforming the features into polynomial terms. The model is evaluated using the same metrics and used to predict car prices on the testing data.
 - Model Comparison: The performance of the linear regression and polynomial regression models is compared based on the evaluation metrics.
-Conclusion
+# Conclusion
+- Based on the analysis conducted, we compared the performance of the linear regression model and polynomial regression model. 
+- The linear regression model achieved a test accuracy score of 62%, while the polynomial regression model achieved a higher test accuracy score of 82%. 
+- The linear regression model, with its lower accuracy score, suggests that the relationship between the independent variables and the dependent variable may not be adequately captured by a linear relationship. 
+- This indicates that the data may have a more complex underlying pattern that cannot be effectively modeled using a straight line. 
+- On the other hand, the polynomial regression model, with its higher accuracy score, suggests that the inclusion of polynomial terms has improved the model's ability to capture the non-linear relationship between the variables. 
+- By allowing for more flexibility in modeling the data, the polynomial regression model was able to better fit the observed patterns and achieve higher accuracy.
