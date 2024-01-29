@@ -1,4 +1,4 @@
-# Used_Cars_Prediction_Using_ML
+# Car Price Prediction Using Python with ML Recommendation                                     
 This project aims to predict the prices of used cars using linear regression and polynomial regression models. 
 The dataset used in this project contains information about various factors such as make, model, fuel type, location, color, owner, seller type etc which can potentially influence the price of a used car.
 # Dataset
